@@ -1,0 +1,12 @@
+
+
+.header {
+    background: blueviolet;
+    color: lightcyan;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
