@@ -29,10 +29,27 @@ setInterval(() => {
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const API_KEY = "f0841a4ea6216d332c6d833cfa7fab21";
 
-    
-    getWeatherData()
+let weather = {
+    apiKey: "4229c0e1c7395dc5e991adfd679ca372",
+    fetchWeather: function(city){
+        fetch(
+            "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${"4229c0e1c7395dc5e991adfd679ca372"}&units=imperial")
+           
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            //this.displayWeather(data);
+        })
+    }
+};
+  // This is code for the One Call API, commented out to work on the Current Weather API
+
+
+//const API_KEY = "f0841a4ea6216d332c6d833cfa7fab21";
+
+    // This is code for the One Call API
+    /*getWeatherData()
     function getWeatherData () {
         navigator.geolocation.getCurrentPosition((success) => {
             
@@ -47,7 +64,7 @@ const API_KEY = "f0841a4ea6216d332c6d833cfa7fab21";
     
         })
     }
-
+*/
 function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
