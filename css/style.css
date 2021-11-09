@@ -54,7 +54,7 @@ body {
 
 .current-info{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .date-container{
@@ -62,15 +62,17 @@ body {
 }
 .date-container .time{
     font-size: 70px;
+    text-align: center;
 }
 
 .date-container #am-pm{
     font-size: 30px;
-    margin-left: 20px;
+    margin-left: 5px;
 }
 
 .date-container .date{
     font-size: 30px;
+    text-align: center;
 }
 
 .place-container{
@@ -99,6 +101,7 @@ body {
 
 .current-info .others .weather-item{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
