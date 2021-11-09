@@ -17,32 +17,89 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bubblegum+Sans&family=Ribeye&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <div class="whole">
+    
         <header>
             Weather
         </header>
-        <main>
+
+        
             <section class="user-input">
                 <input type="text" class="input" placeholder="Enter a city..." />
             </section>
-            <section class="location">
-                <div class="city">Louisville, KY</div>
-                <div class="date">Friday October 25 2020</div>
-            </section>
-            <div class="temp">75<span>°F</span></div>
-            <div class="skies">Clear</div>
-            <div class="hi-low">75°F / 35°F</div>
-            
-            <div class="days">
-                <div class="dayone">DayOne</div>
-                <div class="daytwo">DayTwo</div>
-                <div class="daythree">DayThree</div>
+
+            <div class="container">
+                <div class="current-info">
+        
+                    <div class="date-container">
+                        <div class="time" id="time">
+                            12:30 <span id="am-pm">PM</span>
+                        </div>
+                        <div class="date" id="date">
+                            Friday, 26 Nov
+                        </div>
+        
+                        <div class="others" id="current-weather-items">
+                            
+                            
+                        </div>
+                    </div>
+        
+                    <div class="place-container">
+                        <div class="time-zone" id="time-zone">Louisville, KY</div>
+                    </div>
+                </div>
+        
+                
             </div>
-        </main>
-    
-    </div>
+            
+                
+
+            <div class="future-forecast">
+                <div class="today" id="current-temp">
+                    <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                    <div class="other">
+                        <div class="day">Monday</div>
+                        <div class="temp">Night - 25.6&#176; F</div>
+                        <div class="temp">Day - 35.6&#176; F</div>
+                    </div>
+                </div>
+        
+                <div class="weather-forecast" id="weather-forecast">
+                    <div class="weather-forecast-item">
+                        <div class="day">Tue</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                        <div class="temp">Night - 25.6&#176; F</div>
+                        <div class="temp">Day - 35.6&#176; F</div>
+                    </div>
+                    <div class="weather-forecast-item">
+                        <div class="day">Wed</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                        <div class="temp">Night - 25.6&#176; F</div>
+                        <div class="temp">Day - 35.6&#176; F</div>
+                    </div>
+                    <div class="weather-forecast-item">
+                        <div class="day">Thur</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                        <div class="temp">Night - 25.6&#176; F</div>
+                        <div class="temp">Day - 35.6&#176; F</div>
+                    </div>
+                    <div class="weather-forecast-item">
+                        <div class="day">Fri</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                        <div class="temp">Night - 25.6&#176; F</div>
+                        <div class="temp">Day - 35.6&#176; F</div>
+                    </div>
+                    <div class="weather-forecast-item">
+                        <div class="day">Sat</div>
+                        <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+                        <div class="temp">Night - 25.6&#176; F</div>
+                        <div class="temp">Day - 35.6&#176; F</div>
+                    </div>
+        
+                </div>
+            </div>
 
     
-    <script src="js/weather.js"></script>
+    <script src="./js/weather.js"></script>
 </body>
 </html>
