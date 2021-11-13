@@ -1,5 +1,3 @@
-'use strict'
-
 const timeEl = document.getElementById('time');
 const dateEl = document.getElementById('date');
 const currentWeatherItemsEl = document.getElementById('current-weather-items');
@@ -8,6 +6,11 @@ const countryEl = document.getElementById('country');
 const weatherForecastEl = document.getElementById('weather-forecast');
 const currentTempEl = document.getElementById('current-temp');
 
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const API_KEY ='f0841a4ea6216d332c6d833cfa7fab21';
 
 setInterval(() => {
     const time = new Date();
@@ -25,46 +28,21 @@ setInterval(() => {
 
 }, 1000);
 
+getWeatherData()
+function getWeatherData () {
+    navigator.geolocation.getCurrentPosition((success) => {
+        
+        let {latitude, longitude } = success.coords;
 
-const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q={city name}&units=imperial&appid=${API_KEY}`).then(res => res.json()).then(data => {
 
-
-let weather = {
-    apiKey: "4229c0e1c7395dc5e991adfd679ca372",
-    fetchWeather: function(city){
-        fetch(
-            "https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${"4229c0e1c7395dc5e991adfd679ca372"}&units=imperial")
-           
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            //this.displayWeather(data);
+        console.log(data)
+        showWeatherData(data);
         })
-    }
-};
-  // This is code for the One Call API, commented out to work on the Current Weather API
 
+    })
+}
 
-//const API_KEY = "f0841a4ea6216d332c6d833cfa7fab21";
-
-    // This is code for the One Call API
-    /*getWeatherData()
-    function getWeatherData () {
-        navigator.geolocation.getCurrentPosition((success) => {
-            
-            let {latitude, longitude } = success.coords;
-    
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=imperial&appid=${API_KEY}`)
-            .then(res => res.json()).then(data => {
-    
-            console.log(data)
-            showWeatherData(data);
-            })
-    
-        })
-    }
-*/
 function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
@@ -103,8 +81,8 @@ function showWeatherData (data){
             <img src="http://openweathermap.org/img/wn//${day.weather[0].icon}@4x.png" alt="weather icon" class="w-icon">
             <div class="other">
                 <div class="day">${window.moment(day.dt*1000).format('dddd')}</div>
-                <div class="temp">Night - ${day.temp.night}&#176;F</div>
-                <div class="temp">Day - ${day.temp.day}&#176;F</div>
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
             </div>
             
             `
@@ -113,8 +91,8 @@ function showWeatherData (data){
             <div class="weather-forecast-item">
                 <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather icon" class="w-icon">
-                <div class="temp">Night - ${day.temp.night}&#176;F</div>
-                <div class="temp">Day - ${day.temp.day}&#176;F</div>
+                <div class="temp">Night - ${day.temp.night}&#176;C</div>
+                <div class="temp">Day - ${day.temp.day}&#176;C</div>
             </div>
             
             `
@@ -124,3 +102,5 @@ function showWeatherData (data){
 
     weatherForecastEl.innerHTML = otherDayForcast;
 }
+
+    
