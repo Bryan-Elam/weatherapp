@@ -10,7 +10,7 @@ const currentTempEl = document.getElementById('current-temp');
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-const API_KEY ='f0841a4ea6216d332c6d833cfa7fab21';
+const API_KEY ='4229c0e1c7395dc5e991adfd679ca372';
 
 setInterval(() => {
     const time = new Date();
@@ -28,26 +28,34 @@ setInterval(() => {
 
 }, 1000);
 
+"&units=imperial&appid="
+
+let weather2 = {
+    "apiKey" : "4229c0e1c7395dc5e991adfd679ca372",
+    fetchWeather: function (city) {
+        fetch(
+          "https://api.openweathermap.org/data/2.5/forecast/daily?q=" +
+            city +
+            "&units=imperial&appid=" +
+            this.apiKey
+        )
+          .then((response) => {
+            if (!response.ok) {
+              alert("No weather found.");
+              throw new Error("No weather found.");
+            }
+            
+            return response.json();
+            
+            
+            
+          })
+        .then((data) => this.displayWeather(data));
+      },
 getWeatherData()
-function getWeatherData () {
-    navigator.geolocation.getCurrentPosition((success) => {
-        
-        let {latitude, longitude } = success.coords;
 
-        fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?q={city name}&units=imperial&appid=${API_KEY}`).then(res => res.json()).then(data => {
 
-        console.log(data)
-        showWeatherData(data);
-        })
 
-    })
-}
-
-function showWeatherData (data){
-    let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
-
-    timezone.innerHTML = data.timezone;
-    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
 
     currentWeatherItemsEl.innerHTML = 
     `<div class="weather-item">
@@ -102,5 +110,3 @@ function showWeatherData (data){
 
     weatherForecastEl.innerHTML = otherDayForcast;
 }
-
-    

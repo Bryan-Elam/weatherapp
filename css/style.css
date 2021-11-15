@@ -42,52 +42,112 @@ body {
     margin-bottom: .5rem;    
 }
 
-.user-input {
-    text-align: center;
-    padding: 1rem;
-}
-
-.container{
-    padding: 20px 70px;
-    color:#fff;
-}
-
-.current-info{
+.card {
+    background: #000000d0;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+  }
+  
+  .search {
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-}
-.date-container{
-    font-weight: 100;
-}
-.date-container .time{
-    font-size: 70px;
-    text-align: center;
-}
+  }
+  
+  button {
+    margin: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.4em 1em;
+    border-radius: 24px;
+    background: #7c7c7c2b;
+    color: darkblue;
+    font-family: inherit;
+    font-size: 105%;
+    width: 30rem;
+    background-color: lightblue;
+  }
+  
+  button:hover {
+    background: #7c7c7c6b;
+    color: red;
+  }
+  
+  .weather {
+    display: grid;
+    align-items: left;
+    justify-content: left;  
+  }
 
-.date-container #am-pm{
-    font-size: 30px;
-    margin-left: 5px;
-}
+  h1.temp {
+    margin: 0;
+    margin-bottom: 0.4em;
+    color: white;
+  }
+  
+  .flex {
+    display: flex;
+    align-items: center;
+    color: white;
+   
+  }
+  
+  .description {
+    text-transform: capitalize;
+    margin-left: 8px;
+    color: white;
+  }
+  
+  .weather.loading {
+    visibility: hidden;
+    max-height: 20px;
+    position: relative;
+    color: white;
+  }
+  
+  .weather.loading:after {
+    visibility: visible;
+    content: "Loading...";
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    color: white;
+  }
 
-.date-container .date{
-    font-size: 30px;
-    text-align: center;
-}
+  .city {
+    font-size: 2rem;
+    color: whitesmoke;
+    margin-bottom: .5rem;
+  }  
 
-.place-container{
-    text-align: end;
-}
+  .humidity {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 8px;
+  }
 
-.place-container .time-zone{
-    font-size: 30px;
-    font-weight: 100;
-}
-
-.place-container .country{
-    font-size: 12px;
-    font-weight: 700;
-}
+  .wind {
+    color: white;
+    font-size: 1.2rem;
+    margin-left: 8px;
+  }
 
 .current-info .others{
     display: flex;
@@ -97,6 +157,7 @@ body {
     border-radius: 10px;
     margin: 10px 0;
     border: 1px solid #eee;
+    color: white;
 }
 
 .current-info .others .weather-item{
@@ -139,8 +200,8 @@ body {
 }
 
 .future-forecast .today .temp{
-    font-size: 18px;
-    padding-top: 15px;
+    font-size: 10px;
+    padding-top: 3px;
 }
 
 .future-forecast .weather-forecast{
@@ -180,9 +241,11 @@ body {
         grid-template-rows: 1fr auto;
     }
     
-    .container{
+    .weather{
         padding: 20px;
         display: none;
+        flex-shrink: 0;
+
     }
     
     .future-forecast{
@@ -228,15 +291,31 @@ body {
 
 }
 
-@media only screen and (min-width: 1000px){
+@media only screen and (min-width: 900px){
 
 
     .container {
         display: initial;
+        padding: 20px 70px;
     }
     .future-forecast{
         justify-content: start;
         align-items: none;
         overflow-x: scroll;
+        padding: .25rem;
     }
+
+    @media only screen and (min-width: 1100px){
+
+
+        .container {
+            display: initial;
+            padding: 20px 70px;
+        }
+        .weather{
+            padding: 20px;
+            display: grid;
+            flex-shrink: 0;
+    
+        }
 }
