@@ -32,16 +32,26 @@ body {
     }
 }
    header {
-    text-align: right;
+    text-align: center;
     margin-right: 15px;
     margin-top: .5rem;
     font-size: 3rem;
     color: whitesmoke;
     font-family: 'Ribeye', cursive;
-    animation: 2s ease-out 0s 1 slideInFromLeft;
-    margin-bottom: .5rem;    
+    animation: 3s ease-out 0s 1 slideInFromLeft;
+    margin-bottom: 3rem;    
 }
 
+.date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+    color:whitesmoke;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    font-size: 1.5rem;
+}
 .card {
     background: #000000d0;
     color: white;
@@ -80,8 +90,9 @@ body {
     color: darkblue;
     font-family: inherit;
     font-size: 105%;
-    width: 30rem;
+    width: 20rem;
     background-color: lightblue;
+    
   }
   
   button:hover {
@@ -91,8 +102,17 @@ body {
   
   .weather {
     display: grid;
-    align-items: left;
-    justify-content: left;  
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    border-color: whitesmoke;
+    border-radius: 24px;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    box-shadow: 10px;
+    box-shadow: lightblue;
+    padding: 1rem;
   }
 
   h1.temp {
@@ -123,7 +143,7 @@ body {
   
   .weather.loading:after {
     visibility: visible;
-    content: "Loading...";
+    /*content: "Loading...*/
     color: white;
     position: absolute;
     top: 0;
@@ -166,7 +186,7 @@ body {
     justify-content: space-between;
 }
 
-
+/*
 .future-forecast{
     background: rgba(24,24,27,0.8);
     padding: 25px;
@@ -231,23 +251,35 @@ body {
     font-weight: 100;
     font-size: 12px;
 }
-
-
-@media only screen and  (min-width:900px){
-
-    .body {
-        min-height: 100%;
-        display: grid;
-        grid-template-rows: 1fr auto;
+*/
+@media (min-width: 768px) {
+    .header {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 5px;
+        color: blue;
     }
-    
+
+    .date-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: .5rem;
+        color:whitesmoke;
+        padding-right: 4rem;
+        padding-left: 4rem;
+        font-size: 1rem;
+        margin-top: .5px;
+    }
     .weather{
-        padding: 20px;
-        display: none;
-        flex-shrink: 0;
+        padding: 1px;
+        border: none;
+        margin-top: 0px;
+        font-size: 1rem;
+        
 
     }
-    
+    /*
     .future-forecast{
         justify-content: start;
         align-items: none;
@@ -288,34 +320,7 @@ body {
     .current-info .others .weather-item{
         font-size: 14px;
     }
+    */
 
 }
 
-@media only screen and (min-width: 900px){
-
-
-    .container {
-        display: initial;
-        padding: 20px 70px;
-    }
-    .future-forecast{
-        justify-content: start;
-        align-items: none;
-        overflow-x: scroll;
-        padding: .25rem;
-    }
-
-    @media only screen and (min-width: 1100px){
-
-
-        .container {
-            display: initial;
-            padding: 20px 70px;
-        }
-        .weather{
-            padding: 20px;
-            display: grid;
-            flex-shrink: 0;
-    
-        }
-}
